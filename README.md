@@ -1,6 +1,44 @@
 # Duck Hours
 
-A small FastAPI + HTML/CSS/JavaScript prototype that helps a student turn a Python question into a guided debugging walkthrough.
+Duck Hours is an AI-assisted coding and debugging workspace for students. It combines a browser-based code editor, local program execution, guided hints, and generated test cases to help students understand errors and investigate code that runs but produces the wrong result.
+
+The project uses a hint-first workflow: after a failed run, students can request a targeted hint before choosing an AI-generated fix. Students can also describe their program's purpose and constraints to help the logic checker evaluate its behavior.
+
+## Features
+
+- **Multi-language editor:** Write Python, JavaScript, TypeScript, Ruby, Go, Java, C, and C++ using the Monaco editor.
+- **Local code execution:** Run code with the compiler or interpreter installed on the server machine and inspect its output.
+- **Guided debugging:** Request one specific line hint at a time, with an optional fix available after requesting a hint.
+- **Logic checks:** Review successful runs for likely mistakes against the stated purpose, constraints, and observed output.
+- **Generated test cases:** Highlight a complete function or method and generate 1–20 cases with expected results and separate test harnesses.
+- **Browser-local workspaces:** Keep separate files, settings, and test cases in local storage.
+- **Error explanations:** Follow beginner-friendly guides for highlighted errors.
+
+## Example workflow
+
+1. Open a workspace and write or paste your code into the editor.
+2. Describe what the program should do and any relevant constraints.
+3. Run the program and inspect its output or error.
+4. If it fails, choose **Give me a hint** and use the feedback to investigate. **Fix it for me** becomes available after a hint.
+5. To test a particular function or method, highlight its complete definition and use the **Testcases** panel.
+6. Compare actual results with expected behavior, revise the code, and run it again.
+
+## Technology stack
+
+| Layer | Technology and role |
+| --- | --- |
+| Frontend | HTML, CSS, JavaScript, and Monaco for the browser workspace |
+| Backend | Python and FastAPI for HTTP endpoints and application logic |
+| Development server | Uvicorn |
+| AI integration | Meta API for analysis, hints, fixes, and test generation |
+| Execution | Local language runtimes and compilers |
+| Workspace storage | Browser local storage |
+
+FastAPI serves the web interface and API routes. The browser sends execution requests to the local runner and AI requests to the backend. Running code does not require an AI API key; AI features require configuration.
+
+## Project status
+
+Duck Hours is a local-development prototype. AI feedback and generated expected results should be reviewed; they do not prove that a program is correct. Workspaces are stored in the current browser rather than a shared account.
 
 ## Code layout
 
