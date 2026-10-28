@@ -52,6 +52,8 @@ Duck Hours is a local-development prototype. AI feedback and generated expected 
 
 ## Run locally
 
+You need a Meta API key for AI features; see example.ev to add a private key.
+
 From the repository directory:
 
 ```bash
